@@ -33,7 +33,7 @@ export const Friend = (props) => {
 
     useEffect(() => {
         const getFriendChat = async() => {
-            const response = await fetch(`https://${process.env.REACT_APP_SERVER_URL}/api/get-friend-chat`, { // send post request to logout endpoint
+            const response = await fetch(`http://${process.env.REACT_APP_SERVER_URL}/api/get-friend-chat`, { // send post request to logout endpoint
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
@@ -47,7 +47,7 @@ export const Friend = (props) => {
         }
 
         const getMessages = async() => {
-            const response = await fetch(`https://${process.env.REACT_APP_SERVER_URL}/api/get-messages`, { // send post request to logout endpoint
+            const response = await fetch(`http://${process.env.REACT_APP_SERVER_URL}/api/get-messages`, { // send post request to logout endpoint
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
@@ -63,7 +63,7 @@ export const Friend = (props) => {
         getFriendChat()
         getMessages()
 
-        socket.current = new WebSocket(`wss://${process.env.REACT_APP_SERVER_URL}/ws/`+room_id)
+        socket.current = new WebSocket(`ws://${process.env.REACT_APP_SERVER_URL}/ws/`+room_id)
 
         socket.current.onopen = (event) => {
             console.log("Connection at: ", room_id)
