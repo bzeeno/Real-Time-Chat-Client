@@ -27,7 +27,7 @@ export const Room = (props) => {
 
     useEffect(() => {
         const getMessages = async() => {
-            const response = await fetch(`http://${process.env.REACT_APP_SERVER_URL}/api/get-messages`, {
+            const response = await fetch(`https://${process.env.REACT_APP_SERVER_URL}/api/get-messages`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
