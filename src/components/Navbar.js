@@ -12,7 +12,7 @@ export const Navbar = (props) => {
 
     useEffect(() => {
         const getRoomInfo = async () => {
-            const response = await fetch(`https://${process.env.REACT_APP_SERVER_URL}/api/get-room-info`, { // send post request to logout endpoint
+            const response = await fetch(`http://${process.env.REACT_APP_SERVER_URL}/api/get-room-info`, { // send post request to logout endpoint
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 credentials: 'include',
@@ -35,7 +35,7 @@ export const Navbar = (props) => {
     const logout = async () => {
         props.setUser('')
 
-        await fetch(`https://${process.env.REACT_APP_SERVER_URL}/api/logout`, { // send post request to logout endpoint
+        await fetch(`http://${process.env.REACT_APP_SERVER_URL}/api/logout`, { // send post request to logout endpoint
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             credentials: 'include',
